@@ -1,5 +1,5 @@
-# WebApps
-Apps made to learn [Django REST Framework](http://www.django-rest-framework.org)
+# Django-rest
+Learning [Django REST Framework](http://www.django-rest-framework.org) tutorials
 
 ## About
 This was made with:
