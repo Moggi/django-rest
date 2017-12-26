@@ -37,8 +37,7 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-INSTALLED_APPS = [
-    'rest_framework',
+DEFAULT_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +45,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+THRID_PARTY_APPS = [
+    'rest_framework',
+]
+
+LOCAL_APPS = [
+    'snippets.apps.SnippetsConfig',
+    # 'playlist.apps.PlaylistConfig',
+]
+
+INSTALLED_APPS = LOCAL_APPS + THRID_PARTY_APPS + DEFAULT_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

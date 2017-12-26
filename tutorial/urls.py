@@ -27,5 +27,7 @@ router.register(r'groups', views.GroupViewSet)
 urlpatterns = [
     # path('admin/', admin.site.urls),
     re_path(r'^', include(router.urls)),
+    re_path(r'^snippets/', include('snippets.urls')),
+    # re_path(r'^playlist/', include('playlist.urls')),
     re_path(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
