@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 from rest_framework import routers
 from tutorial.quickstart import views
+from snippets import views as snippets_views
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -26,8 +27,11 @@ router.register(r'groups', views.GroupViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    re_path(r'^', include(router.urls)),
+    # re_path(r'^', include(router.urls)),
+    re_path(r'^$', snippets_views.api_root),
     re_path(r'^snippets/', include('snippets.urls')),
+    re_path(r'^users/$', snippets_views.UserList.as_view(), name='user-list'),
+    re_path(r'^users/(?P<pk>[0-9]+)/$', snippets_views.UserDetail.as_view(), name='user-detail'),
     # re_path(r'^playlist/', include('playlist.urls')),
     re_path(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
